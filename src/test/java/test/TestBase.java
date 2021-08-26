@@ -26,14 +26,14 @@ public class TestBase {
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
     }
 //    @AfterEach
-//    public void logOut(){
-//        $("#header__div--logout").click();
-//    }
-
     @AfterEach
-    public void teardown(){
-        $("#header__div--logout").click();
-        driver.close();
+    public void logOut(){
+    $("#header__div--logout").click();
+}
+
+    @AfterAll
+    public static void finish(){
+        driver.quit();
     }
 }
 
