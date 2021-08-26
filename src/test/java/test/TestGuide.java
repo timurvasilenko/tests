@@ -32,4 +32,6 @@ public class TestGuide extends TestBase{
         MainPage.sidebarListElementClick(Locators.guide);
         assert Guide.checkGuideURL();
     }
+
+    // Test commit 1
 }
