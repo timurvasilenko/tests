@@ -34,6 +34,7 @@ public class TestBase {
     @AfterAll
     public static void finish(){
         driver.quit();
+        System.out.println("Вероника коммитит гит игнор");
     }
 }
 
