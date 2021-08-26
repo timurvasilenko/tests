@@ -34,5 +34,6 @@ public class TestGuide extends TestBase{
     }
 
     // Test commit 1
+    // Test commit Тимур
     // Test commit Veronika
 }
