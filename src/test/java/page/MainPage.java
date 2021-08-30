@@ -1,4 +1,7 @@
 package page;
+import Configs.Locators;
+import com.codeborne.selenide.Selenide;
+
 public class MainPage extends PageBase{
 
 

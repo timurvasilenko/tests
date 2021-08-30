@@ -16,9 +16,11 @@ import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class TestBase {
     private static final ChromeDriver driver = new ChromeDriver();
+    //public static ChromeDriver driver;
 
     @BeforeAll
     public static void start(){
+        //driver = new ChromeDriver();
         Configuration.browser = "chrome";
         setWebDriver(driver);
         driver.manage().window().maximize();
@@ -26,13 +28,19 @@ public class TestBase {
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         System.out.println("Запуск браузера BeforeAll start()");
     }
-
     @AfterEach
-    public void logOut(){
+    public void goTOMainPage(){
 
-        $("#header__div--logout").click();
-        System.out.println("Разлогирование afterEach logOut()");
+        $("#sidebar__li--main").click();
+        //System.out.println("Разлогирование afterEach logOut()");
 }
+
+//    @AfterEach
+//    public void logOut(){
+//
+//        $("#header__div--logout").click();
+//        System.out.println("Разлогирование afterEach logOut()");
+//}
 
     @AfterAll
     public static void finish(){

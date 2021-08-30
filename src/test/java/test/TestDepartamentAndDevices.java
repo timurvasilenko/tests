@@ -19,17 +19,17 @@ public class TestDepartamentAndDevices  extends TestBase {
     @Story("Авторизация")
     public void before() {
         Authorisation.login(ClientConfigs.CA_LOGIN,ClientConfigs.CA_PASSWORD,ClientConfigs.CA_ROLE);
-        System.out.println("Авторизация afterEach before() рабочие места");
+        assert MainPage.checkMainURL():"Проверка корректности авторизации";
+        //System.out.println("Авторизация afterEach before() рабочие места");
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
     @Story("Переход на закладку \"Рабочие места\" раздела \"Отделения и устройства\"")
-    public void assertMainPage() {
-        System.out.println("Проверка авторизации assertMainPage()");
-        assert MainPage.checkMainURL():"1. Открытие меню Модуля Администрирования";
+    public void goToWorkplace() {
+        //System.out.println("Проверка авторизации assertMainPage()");
         MainPage.sidebarListElementClick(Locators.departmentsAndDevices);
         assert Schedule.checkURL():"2. Нажатие на раздел " + "\"Отделения и устройства\"";
-        Schedule.goToWorkplace();
+        Schedule.workplaceTab();
         assert Workplace.checkURL():"3. Нажатие на закладку \"Рабочие места";
     }
 

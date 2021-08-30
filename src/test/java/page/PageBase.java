@@ -1,5 +1,6 @@
 package page;
 
+import Configs.Locators;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
@@ -27,6 +28,7 @@ public class PageBase {
         return true;
      }
      public static void sidebarListElementClick(SelenideElement element){
+         Locators.sideMenu.click();
         element.click();
      }
 

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class Schedule extends PageBase {
     private static final SelenideElement workplace = $("#tab__button--workplace");
 
-    public static void goToWorkplace(){
+    public static void workplaceTab(){
 
         workplace.click();
     }
