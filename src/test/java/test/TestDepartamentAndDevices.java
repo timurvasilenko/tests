@@ -5,7 +5,8 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.Authorisation;
-import page.DepartmentsAndDevices;
+import page.DepartmentAndDevices.Schedule;
+import page.DepartmentAndDevices.Workplace;
 import page.MainPage;
 
 
@@ -18,20 +19,27 @@ public class TestDepartamentAndDevices  extends TestBase {
     @Story("Авторизация")
     public void before() {
         Authorisation.login(ClientConfigs.CA_LOGIN,ClientConfigs.CA_PASSWORD,ClientConfigs.CA_ROLE);
+        System.out.println("Авторизация afterEach before() рабочие места");
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Story("Проверка авторизации")
+    @Story("Переход на закладку \"Рабочие места\" раздела \"Отделения и устройства\"")
     public void assertMainPage() {
-        assert MainPage.checkMainURL();
+        System.out.println("Проверка авторизации assertMainPage()");
+        assert MainPage.checkMainURL():"1. Открытие меню Модуля Администрирования";
+        MainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        assert Schedule.checkURL():"2. Нажатие на раздел " + "\"Отделения и устройства\"";
+        Schedule.goToWorkplace();
+        assert Workplace.checkURL():"3. Нажатие на закладку \"Рабочие места";
     }
 
-    @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Story("Переход на страницу Отделения и устройства")
-    public void goToDepartmentAndDevices() {
-        MainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        assert DepartmentsAndDevices.checkDepartmentAndDevicesURL();
-    }
+//    @Test
+//    @Severity(SeverityLevel.NORMAL)
+//    @Story("Переход на страницу Отделения и устройства")
+//    public void goToDepartmentAndDevices() {
+//        System.out.println("Переход на страницу Отделения и устройства goToDepartmentAndDevices");
+//        MainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+//        assert DepartmentsAndDevices.checkDepartmentAndDevicesURL();
+//    }
 
 }
