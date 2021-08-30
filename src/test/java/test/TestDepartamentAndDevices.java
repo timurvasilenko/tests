@@ -2,8 +2,9 @@ package test;
 import Configs.ClientConfigs;
 import Configs.Locators;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.BeforeEach;
+import org.junit.Test;
+import org.junit.Before;
 import page.Authorisation;
 import page.DepartmentAndDevices.Schedule;
 import page.DepartmentAndDevices.Workplace;
@@ -14,7 +15,7 @@ import page.MainPage;
 @Feature("Рабочие места")
 public class TestDepartamentAndDevices  extends TestBase {
 
-    @BeforeEach
+    @Before
     @Severity(SeverityLevel.CRITICAL)
     @Story("Авторизация")
     public void before() {

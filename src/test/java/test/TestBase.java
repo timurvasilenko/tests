@@ -3,9 +3,10 @@ package test;
 import Configs.ClientConfigs;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import org.junit.AfterClass;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page.Authorisation;
@@ -18,7 +19,7 @@ public class TestBase {
     private static final ChromeDriver driver = new ChromeDriver();
     //public static ChromeDriver driver;
 
-    @BeforeAll
+    @BeforeClass
     public static void start(){
         //driver = new ChromeDriver();
         Configuration.browser = "chrome";
@@ -28,7 +29,7 @@ public class TestBase {
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         System.out.println("Запуск браузера BeforeAll start()");
     }
-    @AfterEach
+    @After
     public void goTOMainPage(){
 
         $("#sidebar__li--main").click();
@@ -42,7 +43,7 @@ public class TestBase {
 //        System.out.println("Разлогирование afterEach logOut()");
 //}
 
-    @AfterAll
+    @AfterClass
     public static void finish(){
         driver.quit();
         System.out.println("Завершение сессии браузера (afterAll finish())");

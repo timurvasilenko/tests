@@ -3,8 +3,8 @@ package test;
 import Configs.ClientConfigs;
 import Configs.Locators;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import page.Authorisation;
 import page.Guide.Operations;
 import page.MainPage;
@@ -12,7 +12,7 @@ import page.MainPage;
 @Epic("Справочники")
 @Feature("Услуги")
 public class TestGuide extends TestBase{
-    @BeforeEach
+    @Before
     @Severity(SeverityLevel.CRITICAL)
     @Story("Авторизация")
     public void before() {
