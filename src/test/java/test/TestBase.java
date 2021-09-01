@@ -1,14 +1,9 @@
 package test;
 
-import Configs.ClientConfigs;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeDriver;
-import page.Authorisation;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -37,6 +32,7 @@ public class TestBase {
 
     @AfterEach
     public void logOut(){
+
         $("#header__div--logout").click();
         System.out.println("Разлогирование afterEach logOut()");
 }

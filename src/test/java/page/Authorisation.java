@@ -1,11 +1,7 @@
 package page;
 
-import Configs.ClientConfigs;
 import Configs.URL;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -18,7 +14,7 @@ public class Authorisation
     private static final SelenideElement rolesList = $("#admin_login__nz-select--authorizationRole");
     private static final SelenideElement submitButton=$("#modal-dialog__button--submit");
 
-    public static void goToLoginPage() {
+    public void goToLoginPage() {
 
         open(URL.AUTHORISATION_URL);
     }

@@ -3,18 +3,14 @@ package page;
 import Configs.Locators;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
-import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PageBase {
     public static final WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), 5,100);
 
-    public static boolean checkURL(String URL){
+    public boolean checkURL(String URL){
         try{
         wait.until(ExpectedConditions.urlToBe(URL));}
         catch (TimeoutException e)

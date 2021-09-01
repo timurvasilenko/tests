@@ -2,9 +2,8 @@ package test;
 import Configs.ClientConfigs;
 import Configs.Locators;
 import io.qameta.allure.*;
-//import org.junit.jupiter.api.BeforeEach;
-import org.junit.Test;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import page.Authorisation;
 import page.DepartmentAndDevices.Schedule;
 import page.DepartmentAndDevices.Workplace;
@@ -13,14 +12,13 @@ import page.MainPage;
 
 @Epic("Отделения и устройства")
 @Feature("Рабочие места")
-public class TestDepartamentAndDevices  extends TestBase {
-    MainPage mainPage=new MainPage();
-    Schedule schedule=new Schedule();
-    Workplace workplace=new Workplace();
-    Authorisation authorisation=new Authorisation();
+public class TestDepartmentAndDevices extends TestBase {
+    MainPage mainPage = new MainPage();
+    Authorisation authorisation = new Authorisation();
+    Schedule schedule = new Schedule();
+    Workplace workplace = new Workplace();
 
-
-    @Before
+    @BeforeEach
     @Severity(SeverityLevel.CRITICAL)
     @Story("Авторизация")
     public void before() {

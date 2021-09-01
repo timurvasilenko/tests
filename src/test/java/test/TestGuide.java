@@ -1,4 +1,5 @@
 package test;
+
 import Configs.ClientConfigs;
 import Configs.Locators;
 import io.qameta.allure.*;
@@ -11,9 +12,10 @@ import page.MainPage;
 @Epic("Справочники")
 @Feature("Услуги")
 public class TestGuide extends TestBase{
-    MainPage mainPage=new MainPage();
-    Authorisation authorisation=new Authorisation();
-    Operations operations=new Operations();
+    MainPage mainPage = new MainPage();
+    Authorisation authorisation = new Authorisation();
+    Operations operations = new Operations();
+
     @BeforeEach
     @Severity(SeverityLevel.CRITICAL)
     @Story("Авторизация")
