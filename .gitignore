@@ -2,3 +2,5 @@
 /.allure
 /.idea
 /target/
+/build/
+/allure-results/
