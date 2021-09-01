@@ -15,6 +15,7 @@ import page.MainPage;
 @Feature("Рабочие места")
 public class TestDepartamentAndDevices  extends TestBase {
 
+
     @Before
     @Severity(SeverityLevel.CRITICAL)
     @Story("Авторизация")
