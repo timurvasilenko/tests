@@ -23,7 +23,7 @@ public class Authorisation
         open(URL.AUTHORISATION_URL);
     }
 
-    public static void login(String username,String password, String role) {
+    public void login(String username,String password, String role) {
         goToLoginPage();
         inputUsername.clear();
         inputUsername.sendKeys(username);

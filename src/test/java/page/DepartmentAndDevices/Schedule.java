@@ -8,11 +8,11 @@ import static com.codeborne.selenide.Selenide.$;
 public class Schedule extends PageBase {
     private static final SelenideElement workplace = $("#tab__button--workplace");
 
-    public static void workplaceTab(){
+    public void workplaceTab(){
 
         workplace.click();
     }
-    public static boolean checkURL()
+    public boolean checkURL()
     {
         return checkURL("http://localhost:8080/admin/DepartmentsAndDevices/schedule");
     }

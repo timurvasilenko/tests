@@ -1,13 +1,10 @@
 package test;
-
 import Configs.ClientConfigs;
 import Configs.Locators;
 import io.qameta.allure.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import page.Authorisation;
-import page.DepartmentAndDevices.Schedule;
-import page.DepartmentAndDevices.Workplace;
 import page.Guide.Operations;
 import page.MainPage;
 
@@ -15,15 +12,15 @@ import page.MainPage;
 @Feature("Услуги")
 public class TestGuide extends TestBase{
     MainPage mainPage=new MainPage();
+    Authorisation authorisation=new Authorisation();
     Operations operations=new Operations();
-
-    @Before
+    @BeforeEach
     @Severity(SeverityLevel.CRITICAL)
     @Story("Авторизация")
     public void before() {
-        Authorisation.login(ClientConfigs.CA_LOGIN,ClientConfigs.CA_PASSWORD,ClientConfigs.CA_ROLE);
+        authorisation.login(ClientConfigs.CA_LOGIN,ClientConfigs.CA_PASSWORD,ClientConfigs.CA_ROLE);
         //System.out.println("Авторизация before() услуги");
-        assert mainPage.checkMainURL():"Проверка корректности авторизации";
+        assert mainPage.checkURL():"Проверка корректности авторизации";
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
@@ -34,13 +31,13 @@ public class TestGuide extends TestBase{
         assert operations.checkURL():"2. Нажатие на раздел \"Справочники\"";
     }
 
-    @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Story("Переход на страницу Справочники")
-    public void goToGuide() {
-        System.out.println("Переход на страницу Справочники goToGuide()");
-        mainPage.sidebarListElementClick(Locators.guide);
-        assert operations.checkURL();
-    }
+//    @Test
+//    @Severity(SeverityLevel.NORMAL)
+//    @Story("Переход на страницу Справочники")
+//    public void goToGuide() {
+//        System.out.println("Переход на страницу Справочники goToGuide()");
+//        MainPage.sidebarListElementClick(Locators.guide);
+//        assert Guide.checkGuideURL();
+//    }
 
 }

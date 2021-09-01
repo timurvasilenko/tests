@@ -27,7 +27,7 @@ public class PageBase {
         System.out.println("true");
         return true;
      }
-     public static void sidebarListElementClick(SelenideElement element){
+     public void sidebarListElementClick(SelenideElement element){
          Locators.sideMenu.click();
         element.click();
      }

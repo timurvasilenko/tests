@@ -5,7 +5,7 @@ import com.codeborne.selenide.Selenide;
 public class MainPage extends PageBase{
 
 
-    public static boolean checkMainURL()
+    public boolean checkURL()
     {
 
         return checkURL("http://localhost:8080/admin/main");
