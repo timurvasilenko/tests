@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class TestBase {
-    private static final ChromeDriver driver = new ChromeDriver();
+    public static final ChromeDriver driver = new ChromeDriver();
     //public static ChromeDriver driver;
 
     @BeforeAll

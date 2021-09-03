@@ -1,14 +1,22 @@
 package test;
 import Configs.ClientConfigs;
 import Configs.Locators;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.WebElement;
 import page.Authorisation;
 import page.DepartmentAndDevices.Schedule;
 import page.DepartmentAndDevices.Workplace;
 import page.MainPage;
 
+import java.util.concurrent.TimeUnit;
+
+import static Configs.ClientConfigs.*;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selenide.$;
 
 @Epic("Отделения и устройства")
 @Feature("Рабочие места")
@@ -37,6 +45,29 @@ public class TestDepartmentAndDevices extends TestBase {
         assert workplace.checkURL():"3. Нажатие на закладку \"Рабочие места";
     }
 
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Добавление нового рабочего места")
+    public void addWorkplace(){
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        schedule.workplaceTab();
+        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
+        //SelenideElement element =$(byId("admin_departmentsanddevices_workplace__button--add-row"));
+        SelenideElement element=$(byXpath("//*[@id=\"admin_departmentsanddevices_workplace__button--add-row\"]"));
+        element.shouldBe(visible).click();
+        workplace.addWorkplaceButton();
+        workplace.inputWorkplaceName();
+        workplace.selectDepartment(DEPARTMENT_NAME);
+        workplace.submit_new_workplace();
+    }
+//    @Test
+//    @Severity(SeverityLevel.NORMAL)
+//    @Story("Добавление нового рабочего места")
+//    public void testbuttons(){
+//        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+//        SelenideElement button1=$(byXpath("//*[@id=\"admin_departmentsanddevices_schedule__button--add-row\"]"));
+//        button1.click();
+//    }
 //    @Test
 //    @Severity(SeverityLevel.NORMAL)
 //    @Story("Переход на страницу Отделения и устройства")
