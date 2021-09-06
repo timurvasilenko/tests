@@ -4,11 +4,13 @@ import Configs.ClientConfigs;
 import Configs.Locators;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import page.Authorisation;
 import page.Guide.Operations;
 import page.MainPage;
 
+@Tag("TestTag2")
 @Epic("Справочники")
 @Feature("Услуги")
 public class TestGuide extends TestBase{

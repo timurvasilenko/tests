@@ -18,6 +18,7 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
+@Tag("testTag")
 @Epic("Отделения и устройства")
 @Feature("Рабочие места")
 public class TestDepartmentAndDevices extends TestBase {
@@ -45,21 +46,21 @@ public class TestDepartmentAndDevices extends TestBase {
         assert workplace.checkURL():"3. Нажатие на закладку \"Рабочие места";
     }
 
-    @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Story("Добавление нового рабочего места")
-    public void addWorkplace(){
-        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        schedule.workplaceTab();
-        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
-        //SelenideElement element =$(byId("admin_departmentsanddevices_workplace__button--add-row"));
-        SelenideElement element=$(byXpath("//*[@id=\"admin_departmentsanddevices_workplace__button--add-row\"]"));
-        element.shouldBe(visible).click();
-        workplace.addWorkplaceButton();
-        workplace.inputWorkplaceName();
-        workplace.selectDepartment(DEPARTMENT_NAME);
-        workplace.submit_new_workplace();
-    }
+//    @Test
+//    @Severity(SeverityLevel.NORMAL)
+//    @Story("Добавление нового рабочего места")
+//    public void addWorkplace(){
+//        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+//        schedule.workplaceTab();
+//        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
+//        //SelenideElement element =$(byId("admin_departmentsanddevices_workplace__button--add-row"));
+//        SelenideElement element=$(byXpath("//*[@id=\"admin_departmentsanddevices_workplace__button--add-row\"]"));
+//        element.shouldBe(visible).click();
+//        workplace.addWorkplaceButton();
+//        workplace.inputWorkplaceName();
+//        workplace.selectDepartment(DEPARTMENT_NAME);
+//        workplace.submit_new_workplace();
+//    }
 //    @Test
 //    @Severity(SeverityLevel.NORMAL)
 //    @Story("Добавление нового рабочего места")
