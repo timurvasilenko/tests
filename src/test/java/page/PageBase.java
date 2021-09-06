@@ -1,14 +1,18 @@
 package page;
 
 import Configs.Locators;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.codeborne.selenide.Condition.*;
+
 public class PageBase {
     public static final WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), 5,100);
+    public static final Condition clickable = and("can be clicked", visible, enabled);
 
     public boolean checkURL(String URL){
         try{

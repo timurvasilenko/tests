@@ -13,6 +13,7 @@ import page.MainPage;
 import java.util.concurrent.TimeUnit;
 
 import static Configs.ClientConfigs.*;
+import static Configs.Locators.workplace_add_row;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byXpath;
@@ -37,7 +38,7 @@ public class TestDepartmentAndDevices extends TestBase {
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Story("Переход на закладку \"Рабочие места\" раздела \"Отделения и устройства\"")
+    @DisplayName("Переход на закладку \"Рабочие места\" раздела \"Отделения и устройства\"")
     public void goToWorkplace() {
         //System.out.println("Проверка авторизации assertMainPage()");
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
@@ -46,21 +47,19 @@ public class TestDepartmentAndDevices extends TestBase {
         assert workplace.checkURL():"3. Нажатие на закладку \"Рабочие места";
     }
 
-//    @Test
-//    @Severity(SeverityLevel.NORMAL)
-//    @Story("Добавление нового рабочего места")
-//    public void addWorkplace(){
-//        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-//        schedule.workplaceTab();
-//        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
-//        //SelenideElement element =$(byId("admin_departmentsanddevices_workplace__button--add-row"));
-//        SelenideElement element=$(byXpath("//*[@id=\"admin_departmentsanddevices_workplace__button--add-row\"]"));
-//        element.shouldBe(visible).click();
-//        workplace.addWorkplaceButton();
-//        workplace.inputWorkplaceName();
-//        workplace.selectDepartment(DEPARTMENT_NAME);
-//        workplace.submit_new_workplace();
-//    }
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Добавление нового рабочего места")
+    public void addWorkplace(){
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        schedule.workplaceTab();
+        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
+        workplace.addWorkplaceButton();
+        workplace.inputWorkplaceName();
+        workplace.selectDepartment(DEPARTMENT_NAME);
+        workplace.submit_new_workplace();
+        //$(".p-datatable-tbody tr:nth-child(2) label").click();
+    }
 //    @Test
 //    @Severity(SeverityLevel.NORMAL)
 //    @Story("Добавление нового рабочего места")

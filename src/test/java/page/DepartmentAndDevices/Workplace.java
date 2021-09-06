@@ -1,14 +1,17 @@
 package page.DepartmentAndDevices;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import page.PageBase;
 
 import static Configs.ClientConfigs.*;
 import static Configs.Locators.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 
 public class Workplace extends PageBase {
+
 
 
     public boolean checkURL()
@@ -17,10 +20,11 @@ public class Workplace extends PageBase {
     }
 
     public void addWorkplaceButton(){
-        workplace_add_row.shouldBe(visible).click();
+        workplace_add_row.shouldBe(clickable).click();
     }
 
     public void inputWorkplaceName(){
+
         input_workplace_name.shouldBe(visible).sendKeys(WORKPLACE_NAME);
     }
     public void selectDepartment(String department){
