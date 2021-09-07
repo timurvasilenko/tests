@@ -14,4 +14,13 @@ public class Locators {
     public static final SelenideElement input_workplace_name=$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu");
     public static final SelenideElement list_of_department=$("#admin_departmentsanddevices_workplace__nz-tree-select--modal-workplace-department");
     public static final SelenideElement new_workplace_submit=$("#admin_departmentsanddevices_workplace__button--modal-workplace-submit");
+    public static final SelenideElement new_workplace_cancel=$("#admin_departmentsanddevices_workplace__div--modal-workplace-close");
+    public static final SelenideElement first_checkbox=$(".p-datatable-tbody tr:nth-child(2) label");
+    public static final SelenideElement delete_button=$("#admin_departmentsanddevices_workplace__button--delete-rows");
+    public static final SelenideElement cancel_delete_workplace=$("#modal-delete__button--cancel");
+    public static final SelenideElement submit_delete_workplace=$("#modal-delete__button--remove");
+
+    public static final SelenideElement list_all_departments=$("#admin_departmentsanddevices_workplace__nz-tree-select--department");
+    public static final SelenideElement edit_workplace=$("#admin_departmentsanddevices_workplace__svg--edit-row0");
+    //public static final SelenideElement hh=$("nz-select-item[title='Все отделения']");
 }

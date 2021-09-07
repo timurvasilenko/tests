@@ -1,22 +1,14 @@
 package test;
 import Configs.ClientConfigs;
 import Configs.Locators;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebElement;
 import page.Authorisation;
 import page.DepartmentAndDevices.Schedule;
 import page.DepartmentAndDevices.Workplace;
 import page.MainPage;
-
-import java.util.concurrent.TimeUnit;
-
 import static Configs.ClientConfigs.*;
-import static Configs.Locators.workplace_add_row;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byId;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 @Tag("DepartmentAndDevices")
@@ -55,26 +47,61 @@ public class TestDepartmentAndDevices extends TestBase {
         schedule.workplaceTab();
         assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
         workplace.addWorkplaceButton();
-        workplace.inputWorkplaceName();
+        $(".modal").shouldBe(visible);
+        workplace.inputWorkplaceName(WORKPLACE_NAME);
         workplace.selectDepartment(DEPARTMENT_NAME);
+        //$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu").shouldHave(text("Окно 01"));
         workplace.submit_new_workplace();
-        //$(".p-datatable-tbody tr:nth-child(2) label").click();
     }
-//    @Test
-//    @Severity(SeverityLevel.NORMAL)
-//    @Story("Добавление нового рабочего места")
-//    public void testbuttons(){
-//        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-//        SelenideElement button1=$(byXpath("//*[@id=\"admin_departmentsanddevices_schedule__button--add-row\"]"));
-//        button1.click();
-//    }
-//    @Test
-//    @Severity(SeverityLevel.NORMAL)
-//    @Story("Переход на страницу Отделения и устройства")
-//    public void goToDepartmentAndDevices() {
-//        System.out.println("Переход на страницу Отделения и устройства goToDepartmentAndDevices");
-//        MainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-//        assert DepartmentsAndDevices.checkDepartmentAndDevicesURL();
-//    }
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Отмена добавления нового рабочего места")
+    public void cancelAddingWorkplace(){
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        schedule.workplaceTab();
+        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
+        workplace.addWorkplaceButton();
+        $(".modal").shouldBe(visible);
+        workplace.inputWorkplaceName(WORKPLACE_NAME);
+        workplace.selectDepartment(DEPARTMENT_NAME);
+        workplace.cancel_new_workplace();
+    }
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Удаление данных")
+    public void deleteWorkplace(){
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        schedule.workplaceTab();
+        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
+        workplace.markCheckBox();
+        workplace.clickDeleteButton();
+        workplace.cancelDeleteWorkplace();
+        workplace.clickDeleteButton();
+        workplace.submitDeleteWorkplace();
+    }
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Выпадающий список \"Отделения\"")
+    public void dropDownListDepartment() {
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        schedule.workplaceTab();
+        assert workplace.checkURL() : "Переход на закладку \"Рабочие места\"";
+        workplace.listDepartmentsClick();
+        workplace.choiceDepartment(DEPARTMENT_NAME);
+        workplace.listDepartmentsClick();
+        workplace.listDepartmentsClick();
+    }
 
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Редактирование рабочего места")
+    public void editWorkplace(){
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        schedule.workplaceTab();
+        assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
+        workplace.editWorkplace();
+        $(".modal").shouldBe(visible);
+        workplace.inputWorkplaceName(" Редактирование");
+        workplace.submit_new_workplace();
+    }
 }
