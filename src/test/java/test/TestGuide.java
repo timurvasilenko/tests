@@ -10,7 +10,7 @@ import page.Authorisation;
 import page.Guide.Operations;
 import page.MainPage;
 
-@Tag("TestTag2")
+@Tag("Guide")
 @Epic("Справочники")
 @Feature("Услуги")
 public class TestGuide extends TestBase{

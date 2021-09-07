@@ -19,7 +19,7 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-@Tag("testTag")
+@Tag("DepartmentAndDevices")
 @Epic("Отделения и устройства")
 @Feature("Рабочие места")
 public class TestDepartmentAndDevices extends TestBase {
