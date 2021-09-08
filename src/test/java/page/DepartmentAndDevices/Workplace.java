@@ -13,6 +13,10 @@ import static com.codeborne.selenide.Selenide.$;
 public class Workplace extends PageBase {
 
 
+    public void workplaceTab(){
+
+        workplace.click();
+    }
 
     public boolean checkURL()
     {

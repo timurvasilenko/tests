@@ -3,14 +3,15 @@ package page.DepartmentAndDevices;
 import com.codeborne.selenide.SelenideElement;
 import page.PageBase;
 
+import static Configs.Locators.device;
+import static Configs.Locators.schedule;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Schedule extends PageBase {
-    private static final SelenideElement workplace = $("#tab__button--workplace");
 
-    public void workplaceTab(){
+    public void scheduleTab() {
 
-        workplace.click();
+        schedule.click();
     }
     public boolean checkURL()
     {

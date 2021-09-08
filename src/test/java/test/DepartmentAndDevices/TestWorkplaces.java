@@ -37,7 +37,7 @@ public class TestWorkplaces extends TestBase {
         //System.out.println("Проверка авторизации assertMainPage()");
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
         assert schedule.checkURL():"2. Нажатие на раздел " + "\"Отделения и устройства\"";
-        schedule.workplaceTab();
+        workplace.workplaceTab();
         assert workplace.checkURL():"3. Нажатие на закладку \"Рабочие места";
     }
 
@@ -46,7 +46,7 @@ public class TestWorkplaces extends TestBase {
     @DisplayName("Добавление нового рабочего места")
     public void addWorkplace(){
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        schedule.workplaceTab();
+        workplace.workplaceTab();
         assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
         workplace.addWorkplaceButton();
         $(".modal").shouldBe(visible);
@@ -60,7 +60,7 @@ public class TestWorkplaces extends TestBase {
     @DisplayName("Отмена добавления нового рабочего места")
     public void cancelAddingWorkplace(){
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        schedule.workplaceTab();
+        workplace.workplaceTab();
         assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
         workplace.addWorkplaceButton();
         $(".modal").shouldBe(visible);
@@ -73,12 +73,12 @@ public class TestWorkplaces extends TestBase {
     @DisplayName("Удаление данных")
     public void deleteWorkplace(){
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        schedule.workplaceTab();
+        workplace.workplaceTab();
         assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
         workplace.markCheckBox();
         workplace.clickDeleteButton();
         workplace.cancelDeleteWorkplace();
-        //workplace.clickDeleteButton();
+        workplace.clickDeleteButton();
         workplace.submitDeleteWorkplace();
     }
     @Test
@@ -86,7 +86,7 @@ public class TestWorkplaces extends TestBase {
     @DisplayName("Выпадающий список \"Отделения\"")
     public void dropDownListDepartment() {
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        schedule.workplaceTab();
+        workplace.workplaceTab();
         assert workplace.checkURL() : "Переход на закладку \"Рабочие места\"";
         workplace.listDepartmentsClick();
         workplace.choiceDepartment(DEPARTMENT_NAME);
@@ -99,7 +99,7 @@ public class TestWorkplaces extends TestBase {
     @DisplayName("Редактирование рабочего места")
     public void editWorkplace(){
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        schedule.workplaceTab();
+        workplace.workplaceTab();
         assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
         workplace.editWorkplace();
         $(".modal").shouldBe(visible);
