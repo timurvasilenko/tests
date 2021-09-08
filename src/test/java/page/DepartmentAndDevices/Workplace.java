@@ -1,12 +1,9 @@
 package page.DepartmentAndDevices;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import page.PageBase;
 
-import static Configs.ClientConfigs.*;
 import static Configs.Locators.*;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -46,7 +43,7 @@ public class Workplace extends PageBase {
     }
 
     public void markCheckBox(){
-        first_checkbox.click();
+        first_checkbox_workplace.click();
     }
     public void clickDeleteButton(){
         delete_button.shouldBe(clickable).click();

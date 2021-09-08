@@ -36,12 +36,24 @@ public class TestSchedule extends TestBase {
     @DisplayName(" \"График работы\" - тестирование переходов")
     public void goToSchedule() {
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
-        assert schedule.checkURL():"Нажатие на раздел " + "\"Отделения и устройства\"";
+        assert schedule.checkURL() : "Нажатие на раздел " + "\"Отделения и устройства\"";
         device.deviceTab();
-        assert device.checkURL():"Нажатие на закладку \"Устройства\"";
+        assert device.checkURL() : "Нажатие на закладку \"Устройства\"";
         schedule.scheduleTab();
-        assert schedule.checkURL():"Нажатие на закладку \"График работы\"";
+        assert schedule.checkURL() : "Нажатие на закладку \"График работы\"";
         preRegister.preRegisterTab();
-        assert preRegister.checkURL():"Нажатие на раздел \"Предварительная запись\"";
+        assert preRegister.checkURL() : "Нажатие на раздел \"Предварительная запись\"";
+    }
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName(" \"График работы\" - тестирование переходов")
+    public void addScheduler() {
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        assert schedule.checkURL() : "Нажатие на раздел " + "\"Отделения и устройства\"";
+        schedule.addSchedulerButton();
+        schedule.inputScheduleName();
+        schedule.daysTab();
+        schedule.inputTimetable();
+        schedule.submitNewScheduler();
     }
 }

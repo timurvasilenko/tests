@@ -1,5 +1,7 @@
 package Configs;
 import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Locators {
@@ -9,14 +11,20 @@ public class Locators {
     public static final SelenideElement sideMenu = $("#sidebar__div--show");
     //ГРАФИК РАБОТЫ
     public static final SelenideElement schedule=$("#tab__button--schedule");
-
+    public static final SelenideElement schedule_add_row=$("#admin_departmentsanddevices_schedule__button--add-row");
+    public static final SelenideElement input_schedule_name=$("#admin_departmentsanddevices_schedule__input--modal-schedule-nameRu");
+    public static final SelenideElement days_tab=$(".mat-tab-labels div:nth-child(2)");
+    public static final SelenideElement checkbox_working_day=$("label[for=\"working0\"]");
+    public static final SelenideElement input_start_work_time=$("#admin_departmentsanddevices_schedule__input--modal-schedule-startTime-0");
+    public static final SelenideElement input_end_work_time=$("#admin_departmentsanddevices_schedule__input--modal-schedule-endTime-0");
+    public static final SelenideElement submit_new_schedule=$("#admin_departmentsanddevices_schedule__button--modal-schedule-submit");
     //РАБОЧИЕ МЕСТА
     public static final SelenideElement workplace_add_row = $("#admin_departmentsanddevices_workplace__button--add-row");
     public static final SelenideElement input_workplace_name=$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu");
     public static final SelenideElement list_of_department=$("#admin_departmentsanddevices_workplace__nz-tree-select--modal-workplace-department");
     public static final SelenideElement new_workplace_submit=$("#admin_departmentsanddevices_workplace__button--modal-workplace-submit");
     public static final SelenideElement new_workplace_cancel=$("#admin_departmentsanddevices_workplace__div--modal-workplace-close");
-    public static final SelenideElement first_checkbox=$(".p-datatable-tbody tr:nth-child(2) label");
+    public static final SelenideElement first_checkbox_workplace =$(".p-datatable-tbody tr:nth-child(2) label");
     public static final SelenideElement delete_button=$("#admin_departmentsanddevices_workplace__button--delete-rows");
     public static final SelenideElement cancel_delete_workplace=$("#modal-delete__button--cancel");
     public static final SelenideElement submit_delete_workplace=$("#modal-delete__button--remove");

@@ -80,6 +80,7 @@ public class TestWorkplaces extends TestBase {
         workplace.cancelDeleteWorkplace();
         workplace.clickDeleteButton();
         workplace.submitDeleteWorkplace();
+
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
@@ -87,7 +88,7 @@ public class TestWorkplaces extends TestBase {
     public void dropDownListDepartment() {
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
         workplace.workplaceTab();
-        assert workplace.checkURL() : "Переход на закладку \"Рабочие места\"";
+        assert workplace.checkURL(): "Переход на закладку \"Рабочие места\"";
         workplace.listDepartmentsClick();
         workplace.choiceDepartment(DEPARTMENT_NAME);
         workplace.listDepartmentsClick();
