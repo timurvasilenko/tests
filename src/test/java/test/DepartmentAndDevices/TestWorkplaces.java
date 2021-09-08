@@ -1,4 +1,4 @@
-package test;
+package test.DepartmentAndDevices;
 import Configs.ClientConfigs;
 import Configs.Locators;
 import io.qameta.allure.*;
@@ -7,6 +7,8 @@ import page.Authorisation;
 import page.DepartmentAndDevices.Schedule;
 import page.DepartmentAndDevices.Workplace;
 import page.MainPage;
+import test.TestBase;
+
 import static Configs.ClientConfigs.*;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -14,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$;
 @Tag("DepartmentAndDevices")
 @Epic("Отделения и устройства")
 @Feature("Рабочие места")
-public class TestDepartmentAndDevices extends TestBase {
+public class TestWorkplaces extends TestBase {
     MainPage mainPage = new MainPage();
     Authorisation authorisation = new Authorisation();
     Schedule schedule = new Schedule();
@@ -76,7 +78,7 @@ public class TestDepartmentAndDevices extends TestBase {
         workplace.markCheckBox();
         workplace.clickDeleteButton();
         workplace.cancelDeleteWorkplace();
-        workplace.clickDeleteButton();
+        //workplace.clickDeleteButton();
         workplace.submitDeleteWorkplace();
     }
     @Test

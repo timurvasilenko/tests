@@ -1,4 +1,4 @@
-package test;
+package test.Guide;
 
 import Configs.ClientConfigs;
 import Configs.Locators;
@@ -9,11 +9,12 @@ import org.junit.jupiter.api.Test;
 import page.Authorisation;
 import page.Guide.Operations;
 import page.MainPage;
+import test.TestBase;
 
 @Tag("Guide")
 @Epic("Справочники")
 @Feature("Услуги")
-public class TestGuide extends TestBase{
+public class TestOperations extends TestBase {
     MainPage mainPage = new MainPage();
     Authorisation authorisation = new Authorisation();
     Operations operations = new Operations();
