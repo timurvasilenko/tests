@@ -38,4 +38,7 @@ public class Schedule extends PageBase {
     public void submitNewScheduler(){
         submit_new_schedule.shouldBe(clickable).click();
     }
+    public void cancelNewScheduler(){
+        cancel_new_schedule.click();
+    }
 }

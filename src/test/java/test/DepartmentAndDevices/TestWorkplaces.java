@@ -13,6 +13,7 @@ import static Configs.ClientConfigs.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.files.DownloadActions.click;
 
 @Tag("DepartmentAndDevices")
 @Epic("Отделения и устройства")
@@ -29,8 +30,8 @@ public class TestWorkplaces extends TestBase {
     public void before() {
         authorisation.login(ClientConfigs.CA_LOGIN,ClientConfigs.CA_PASSWORD,ClientConfigs.CA_ROLE);
         assert mainPage.checkURL():"Проверка корректности авторизации";
-
     }
+
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Переход на закладку \"Рабочие места\" раздела \"Отделения и устройства\"")
@@ -53,7 +54,6 @@ public class TestWorkplaces extends TestBase {
         $(".modal").shouldBe(visible);
         workplace.inputWorkplaceName(WORKPLACE_NAME);
         workplace.selectDepartment(DEPARTMENT_NAME);
-        //$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu").shouldHave(text("Окно 01"));
         workplace.submit_new_workplace();
         assert $(byText("Окно 01")).exists():"В таблице \"Рабочие места\" пояляется новая запись с наименованием \"Окно 01\"";
     }
@@ -68,7 +68,7 @@ public class TestWorkplaces extends TestBase {
         $(".modal").shouldBe(visible);
         workplace.inputWorkplaceName(WORKPLACE_NAME);
         workplace.selectDepartment(DEPARTMENT_NAME);
-        workplace.cancel_new_workplace();
+        workplace.cancelNewWorkplace();
         $(byText("Окно 01")).shouldNot(exist);//:"В таблице \"Рабочие места\" не появилось новых записей";
     }
     @Test
@@ -83,8 +83,8 @@ public class TestWorkplaces extends TestBase {
         workplace.cancelDeleteWorkplace();
         workplace.clickDeleteButton();
         workplace.submitDeleteWorkplace();
-
     }
+
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Выпадающий список \"Отделения\"")
@@ -93,9 +93,13 @@ public class TestWorkplaces extends TestBase {
         workplace.workplaceTab();
         assert workplace.checkURL(): "Переход на закладку \"Рабочие места\"";
         workplace.listDepartmentsClick();
+        $(".cdk-overlay-pane").shouldBe(visible);
         workplace.choiceDepartment(DEPARTMENT_NAME);
+        assert $("nz-tree-node-title[title='Нижегородское отделение'").exists():"Выпадающий список закрывается, в нём отображается значение \"Нижегородское отделение\"";
         workplace.listDepartmentsClick();
+        $(".cdk-overlay-pane").shouldBe(visible);
         workplace.listDepartmentsClick();
+        assert $("nz-tree-node-title[title='Нижегородское отделение'").exists():"Выпадающий список закрывается, в нём отображается значение \"Нижегородское отделение\"";
     }
 
     @Test

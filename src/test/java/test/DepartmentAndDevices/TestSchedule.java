@@ -14,6 +14,10 @@ import page.MainPage;
 import page.preRegister.PreRegister;
 import test.TestBase;
 
+import static Configs.ClientConfigs.SCHEDULE_NAME;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+
 @Tag("DepartmentAndDevices")
 @Epic("Отделения и устройства")
 @Feature("График работы")
@@ -55,5 +59,19 @@ public class TestSchedule extends TestBase {
         schedule.daysTab();
         schedule.inputTimetable();
         schedule.submitNewScheduler();
+        assert $(byText(SCHEDULE_NAME)).exists():" в таблице \"График работы\" появляется новая запись с наименованием \"Дефолтный график\"";
+    }
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Отмена добавления нового графика работы отделения")
+    public void cancelAddingScheduler() {
+        mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
+        assert schedule.checkURL() : "Нажатие на раздел " + "\"Отделения и устройства\"";
+        schedule.addSchedulerButton();
+        schedule.inputScheduleName();
+        schedule.daysTab();
+        schedule.inputTimetable();
+        schedule.cancelNewScheduler();
+        //assert $(byText(SCHEDULE_NAME)).exists():" в таблице \"График работы\" появляется новая запись с наименованием \"Дефолтный график\"";
     }
 }

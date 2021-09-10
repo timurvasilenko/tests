@@ -18,6 +18,7 @@ public class Locators {
     public static final SelenideElement input_start_work_time=$("#admin_departmentsanddevices_schedule__input--modal-schedule-startTime-0");
     public static final SelenideElement input_end_work_time=$("#admin_departmentsanddevices_schedule__input--modal-schedule-endTime-0");
     public static final SelenideElement submit_new_schedule=$("#admin_departmentsanddevices_schedule__button--modal-schedule-submit");
+    public static final SelenideElement cancel_new_schedule=$("#admin_departmentsanddevices_schedule__div--modal-schedule-close");
     //РАБОЧИЕ МЕСТА
     public static final SelenideElement workplace_add_row = $("#admin_departmentsanddevices_workplace__button--add-row");
     public static final SelenideElement input_workplace_name=$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu");

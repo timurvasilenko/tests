@@ -38,7 +38,7 @@ public class Workplace extends PageBase {
         new_workplace_submit.shouldBe(clickable).click();
     }
 
-    public void cancel_new_workplace(){
+    public void cancelNewWorkplace(){
         new_workplace_cancel.click();
     }
 
