@@ -24,25 +24,13 @@ public class TestOperations extends TestBase {
     @Story("Авторизация")
     public void before() {
         authorisation.login(ClientConfigs.CA_LOGIN,ClientConfigs.CA_PASSWORD,ClientConfigs.CA_ROLE);
-        //System.out.println("Авторизация before() услуги");
         assert mainPage.checkURL():"Проверка корректности авторизации";
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
     @Story("Переход на закладку \"Услуги\" раздела \"Справочники\"")
     public void goToOperations() {
-        //System.out.println("Проверка авторизации assertMainPage() услуги");
         mainPage.sidebarListElementClick(Locators.guide);
         assert operations.checkURL():"2. Нажатие на раздел \"Справочники\"";
     }
-
-//    @Test
-//    @Severity(SeverityLevel.NORMAL)
-//    @Story("Переход на страницу Справочники")
-//    public void goToGuide() {
-//        System.out.println("Переход на страницу Справочники goToGuide()");
-//        MainPage.sidebarListElementClick(Locators.guide);
-//        assert Guide.checkGuideURL();
-//    }
-
 }

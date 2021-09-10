@@ -46,7 +46,7 @@ public class TestSchedule extends TestBase {
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName(" \"График работы\" - тестирование переходов")
+    @DisplayName("Добавление нового графика работы отделения")
     public void addScheduler() {
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
         assert schedule.checkURL() : "Нажатие на раздел " + "\"Отделения и устройства\"";

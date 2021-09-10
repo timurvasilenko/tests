@@ -10,7 +10,8 @@ import page.MainPage;
 import test.TestBase;
 
 import static Configs.ClientConfigs.*;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 @Tag("DepartmentAndDevices")
@@ -28,7 +29,7 @@ public class TestWorkplaces extends TestBase {
     public void before() {
         authorisation.login(ClientConfigs.CA_LOGIN,ClientConfigs.CA_PASSWORD,ClientConfigs.CA_ROLE);
         assert mainPage.checkURL():"Проверка корректности авторизации";
-        //System.out.println("Авторизация afterEach before() рабочие места");
+
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
@@ -54,6 +55,7 @@ public class TestWorkplaces extends TestBase {
         workplace.selectDepartment(DEPARTMENT_NAME);
         //$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu").shouldHave(text("Окно 01"));
         workplace.submit_new_workplace();
+        assert $(byText("Окно 01")).exists():"В таблице \"Рабочие места\" пояляется новая запись с наименованием \"Окно 01\"";
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
@@ -67,6 +69,7 @@ public class TestWorkplaces extends TestBase {
         workplace.inputWorkplaceName(WORKPLACE_NAME);
         workplace.selectDepartment(DEPARTMENT_NAME);
         workplace.cancel_new_workplace();
+        $(byText("Окно 01")).shouldNot(exist);//:"В таблице \"Рабочие места\" не появилось новых записей";
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
@@ -106,5 +109,6 @@ public class TestWorkplaces extends TestBase {
         $(".modal").shouldBe(visible);
         workplace.inputWorkplaceName(" Редактирование");
         workplace.submit_new_workplace();
+        assert $(byText("Окно 01 Редактирование")).exists():"В таблице \"Рабочие места\" отображена отредактированная запись";
     }
 }
