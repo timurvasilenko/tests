@@ -5,10 +5,16 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+import static test.TestBase.driver;
 
 public class PageBase {
     public static final WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), 5,100);
@@ -22,15 +28,16 @@ public class PageBase {
             System.out.println("false");
             return false;
         }
-        //String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        //return currentUrl.equals(URL);
         System.out.println("true");
         return true;
      }
-     public void sidebarListElementClick(SelenideElement element){
-         Locators.sideMenu.click();
+    public void sidebarListElementClick(SelenideElement element) {
+        Locators.sideMenu.click();
         element.click();
-     }
+    }
+    public void isElementDisplayed(SelenideElement element,Condition condition){
+        element.shouldBe(condition);
+    }
 
 //     public static void waiter(int ms){
 //        try{
@@ -53,8 +60,5 @@ public class PageBase {
 //        waitVisibility(elementBy);
 //        driver.findElement(elementBy).click();
 //    }
-//    public void isElementDisplayed(By elementBy){
-//        waitVisibility(elementBy);
-//        assertTrue (driver.findElement(elementBy).isDisplayed());
-//    }
+
 }

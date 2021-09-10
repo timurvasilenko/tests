@@ -26,7 +26,7 @@ public class Workplace extends PageBase {
 
     public void inputWorkplaceName(String name){
 
-        input_workplace_name.shouldBe(visible).sendKeys(name);
+        input_workplace_name_rus.shouldBe(visible).sendKeys(name);
         //input_workplace_name.shouldHave(text(WORKPLACE_NAME));
     }
     public void selectDepartment(String department){

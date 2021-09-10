@@ -8,12 +8,10 @@ import page.DepartmentAndDevices.Schedule;
 import page.DepartmentAndDevices.Workplace;
 import page.MainPage;
 import test.TestBase;
-
 import static Configs.ClientConfigs.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 @Tag("DepartmentAndDevices")
 @Epic("Отделения и устройства")
@@ -46,7 +44,7 @@ public class TestWorkplaces extends TestBase {
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Добавление нового рабочего места")
-    public void addWorkplace(){
+    public void addNewWorkplace(){
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
         workplace.workplaceTab();
         assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
@@ -57,6 +55,7 @@ public class TestWorkplaces extends TestBase {
         workplace.submit_new_workplace();
         assert $(byText("Окно 01")).exists():"В таблице \"Рабочие места\" пояляется новая запись с наименованием \"Окно 01\"";
     }
+
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Отмена добавления нового рабочего места")
@@ -69,7 +68,7 @@ public class TestWorkplaces extends TestBase {
         workplace.inputWorkplaceName(WORKPLACE_NAME);
         workplace.selectDepartment(DEPARTMENT_NAME);
         workplace.cancelNewWorkplace();
-        $(byText("Окно 01")).shouldNot(exist);//:"В таблице \"Рабочие места\" не появилось новых записей";
+        assert (!$(byText("Окно 01")).exists()):"В таблице \"Рабочие места\" не появилось новых записей";
     }
     @Test
     @Severity(SeverityLevel.NORMAL)
@@ -78,11 +77,15 @@ public class TestWorkplaces extends TestBase {
         mainPage.sidebarListElementClick(Locators.departmentsAndDevices);
         workplace.workplaceTab();
         assert workplace.checkURL():"Переход на закладку \"Рабочие места\"";
+        workplace.addWorkplace("Окно 01","","","Нижегородское отделение");
         workplace.markCheckBox();
         workplace.clickDeleteButton();
         workplace.cancelDeleteWorkplace();
         workplace.clickDeleteButton();
         workplace.submitDeleteWorkplace();
+        //assert !workplace.isElementDisplayed($(byText("Окно 01"))):"Данные удалены успешно";
+        // assert !($(byText("Окно 01")).exists()):"Данные удалены успешно";
+        workplace.isElementDisplayed($(byText("Окно 01")),not(exist));
     }
 
     @Test

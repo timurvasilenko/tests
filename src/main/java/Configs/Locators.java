@@ -21,11 +21,15 @@ public class Locators {
     public static final SelenideElement cancel_new_schedule=$("#admin_departmentsanddevices_schedule__div--modal-schedule-close");
     //РАБОЧИЕ МЕСТА
     public static final SelenideElement workplace_add_row = $("#admin_departmentsanddevices_workplace__button--add-row");
-    public static final SelenideElement input_workplace_name=$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu");
+    public static final SelenideElement input_workplace_name_rus=$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameRu");
+    public static final SelenideElement input_workplace_name_en_title=$(byXpath("//*[text() = 'Английский']"));
+    public static final SelenideElement input_workplace_name_en=$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameEn");
+    public static final SelenideElement input_workplace_name_additional_title=$(byXpath("//*[text() = 'Дополнительный язык']"));
+    public static final SelenideElement input_workplace_name_additional=$("#admin_departmentsanddevices_workplace__input--modal-workplace-nameCustomLanguage");
     public static final SelenideElement list_of_department=$("#admin_departmentsanddevices_workplace__nz-tree-select--modal-workplace-department");
     public static final SelenideElement new_workplace_submit=$("#admin_departmentsanddevices_workplace__button--modal-workplace-submit");
     public static final SelenideElement new_workplace_cancel=$("#admin_departmentsanddevices_workplace__div--modal-workplace-close");
-    public static final SelenideElement first_checkbox_workplace =$(".p-datatable-tbody tr:nth-child(2) label");
+    public static final SelenideElement first_checkbox_workplace =$(".p-datatable-tbody tr:nth-child(1) label");
     public static final SelenideElement delete_button=$("#admin_departmentsanddevices_workplace__button--delete-rows");
     public static final SelenideElement cancel_delete_workplace=$("#modal-delete__button--cancel");
     public static final SelenideElement submit_delete_workplace=$("#modal-delete__button--remove");
